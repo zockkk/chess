@@ -127,3 +127,13 @@ for matrix in koroli:
                 z += 2 ** (8 * i + j)
     king_bit.append(z)
     z = 0
+
+def legal_silence(bitboard,bitpiece,bitmove,place):
+    bitplace=(place[0]-1)*8+place[1]-1
+    if bitmove&bitpiece!=bitmove or bitmove&bitboard!=bitplace:
+        return False
+    return True
+
+def legal_eat(bitboard,bitpiece,eat,place1,place2):
+    place1_bit=(place1[0]-1)*8+place1[1]-1
+    place2_bit = (place2[0] - 1) * 8 + place2[1] - 1
